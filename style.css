@@ -1,0 +1,98 @@
+:root {
+    --padding: 2px;
+    --w0: 50%;
+    --w1: 100%;
+    --duration: 2s;
+    --speed: 90;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.cont {
+    position: relative;
+    margin: var(--padding);
+    height: calc(100vh - var(--padding) * 2);
+
+    box-sizing: border-box;
+    white-space: no-wrap;
+    font-size: 0;
+}
+
+.cont>* {
+    white-space: normal;
+    font-size: 16px;
+    text-align: center;
+}
+
+#bad,
+#good {
+    display: inline-block;
+    box-sizing: border-box;
+
+    height: 100%;
+}
+
+#bad {
+    width: 50%;
+    background-color: red;
+
+}
+
+#good {
+    background-color: blue;
+    width: 50%;
+}
+
+.move {
+    animation-name: move;
+    animation-duration: var(--duration);
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+.reverse {
+    animation-name: reverse;
+    animation-duration: var(--duration);
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+#dialogue {
+    --w: 80%;
+    --h: 70%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: var(--w);
+    height: var(--h);
+    top: calc(50% - var(--h)/2);
+    bottom: 0;
+    left: calc(50% - var(--w)/2);
+    right: 0;
+
+}
+
+
+@keyframes move {
+    from {
+        width: var(--w0);
+    }
+
+    to {
+        width: var(--w1);
+    }
+}
+
+@keyframes reverse {
+    from {
+        width: calc(100% - var(--w0));
+    }
+
+    to {
+        width: calc(100% - var(--w1));
+    }
+}
